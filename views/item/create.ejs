@@ -1,0 +1,100 @@
+<%- include('../header') %>
+<!-- Content wrapper -->
+
+
+  <div class="container">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> Thêm thí sinh</h4>
+    
+    <form action="" method="post" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-xl-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="mb-3 row">
+              <label for="html5-text-input" class="col-md-2 col-form-label">Tên</label>
+              <div class="col-md-10">
+                <input class="form-control" type="text" name="name" placeholder="Nhập tên..."  id="html5-text-input" />
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="html5-tel-input" class="col-md-2 col-form-label">Địa chỉ</label>
+              <div class="col-md-10">
+                <input class="form-control" type="text" name="address" placeholder="Nhập địa chỉ..." id="html5-tel-input" />
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="html5-tel-input" class="col-md-2 col-form-label">Số điện thoại</label>
+              <div class="col-md-10">
+                <input class="form-control" type="tel" name="phone" placeholder="Nhập số điện thoại" id="html5-tel-input" />
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="html5-password-input" class="col-md-2 col-form-label">Mô tả</label>
+              <div class="col-md-10">
+                <input class="form-control" type="text" name="description" placeholder="Giới thiệu..." id="html5-password-input" />
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="html5-number-input" class="col-md-2 col-form-label">Tuổi</label>
+              <div class="col-md-10">
+                <input class="form-control" type="number" name="age" placeholder="Nhập tuổi..." id="html5-number-input" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4">
+        <div class="card mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Ảnh</label>
+              <input class="form-control" type="file" name="image" id="formFile" />
+            </div>
+            <div class="col-md">
+              <small class="text-light fw-semibold">Trạng thái</small>
+              <div class="form-check mt-3">
+                <input
+                  name="status"
+                  class="form-check-input"
+                  type="radio"
+                  value="1"
+                  id="defaultRadio1"
+                />
+                <label class="form-check-label" for="defaultRadio1"> Hiển thị</label>
+              </div>
+              <div class="form-check">
+                <input
+                  name="status"
+                  class="form-check-input"
+                  type="radio"
+                  value="0"
+                  id="defaultRadio2"
+                  checked
+                />
+                <label class="form-check-label" for="defaultRadio2"> Tạm ẩn </label>
+              </div>
+            </div>
+          </div>
+          <div class="card-body demo-vertical-spacing demo-only-element">
+            <div class="input-group">
+              <label class="input-group-text" for="inputGroupSelect01">Cuộc thi</label>
+              <select class="form-select" name="pollId" id="inputGroupSelect01" required="required">
+                <option selected>cuộc thi tham dự</option>
+                <% poll.forEach((item, key) => { %>
+                <option value="<%= item.id %>"><%= item.name %></option>
+                <% }); %>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">
+            Thêm
+          </button>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </form>
+  </div>
+  <!-- / Content -->
+<%- include('../footer') %>

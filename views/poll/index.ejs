@@ -1,0 +1,69 @@
+<%- include('../header') %>
+
+<div class="container">
+
+    <a href="" class="btn btn-primary">Tạo cuộc bình chọn mới</a>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Ngày bắt đầu</th>
+                <th>Ngày kết thúc</th>
+                <th>Trạng thái</th>
+                <th></th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <% data.items.forEach((item, key)=> { %>
+                <tr>
+                    <td>
+                        <%= item.id %>
+                    </td>
+                    <td>
+                        <%= item.name %>
+                    </td> 
+                    <td>
+                        <%= item.start %>
+                    </td>
+                    <td>
+                        <%= item.end %>
+                    </td>
+                    <td>
+                        <%= item.phone %>
+                    </td>
+                    <td>
+                        <%= item.status==0 ? 'Tạm ẩn' : 'Hiển thị' %>
+                    </td>
+                        <td>
+                            
+                            <a onclick="return confirm('Chắc chưa?')" href="poll/delete/<%= item.id %>"
+                                class="btn btn-danger">Xóa</a>
+
+                            <a  href="poll/edit/<%= item.id %>" class="btn btn-primary">
+                                Sửa
+                            </a>
+
+                            <a href="poll/itemPerPoll/<%= item.id %>" class="btn btn-success">
+                                Chi tiết
+                            </a>
+                            
+                        </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+    <div class="container">
+        <ul class="pagination">
+          <% for( var i=0; i < data.meta.totalPages; i++ ) { %>
+            <li class="page-item">
+                <a class="page-link" type="submit" href="?page=<%= i+1 %>">
+                    <%= i+1 %>
+                  </a>
+            </li>
+            <% }; %>
+        </ul>
+      </div>
+</div>
+<%- include('../footer') %>

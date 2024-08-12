@@ -1,0 +1,54 @@
+<%- include('../header') %>
+<section class="content">
+  <div class="container-fluid">
+    <!-- Main row -->
+    <div class="row row-cols-2 d-flex justify-content-center" >
+      <form action="" method="post" enctype="multipart/form-data">
+       
+        <div class="row">
+          <div class="col">
+            <label for="" class="form-label">Tên</label>
+            <input type="text" name="name" id="" class="form-control" placeholder="Tên đầy đủ..." aria-describedby="helpId">
+          </div>
+          <div class="col">
+             <label for="" class="form-label">Email</label>
+            <input type="email" name="email" id="" class="form-control" placeholder="Email(email@gmail.com)..." aria-describedby="helpId">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="" class="form-label">Số điện thoại</label>
+            <input type="text" name="phone" id="" class="form-control" placeholder="Nhập số điện thoại..." aria-describedby="helpId">
+          </div>
+          <div class="col">
+             <label for="" class="form-label">Mật khẩu</label>
+            <input type="password" name="password" id="" class="form-control" placeholder="Nhập mật khẩu..." aria-describedby="helpId">
+          </div>
+        </div>
+      
+        
+       
+        <div class="row" style="margin-top:15px ;">
+          <div class="col">
+              <label for="" class="form-label">Địa chỉ</label>
+            <textarea name="address" id="" cols="30" rows="5" class="form-control"></textarea>
+          </div>
+        </div>
+        <div class="row">
+           <div class="col">
+            <label for="formFile" class="form-label">Ảnh</label>
+            <input type="file" name="image" class="form-control" id="formFile">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top:15px ;">Thêm mới</button>
+      </form>
+
+    </div>
+    <div class="row">
+
+    </div>
+    <!-- /.row (main row) -->
+  </div><!-- /.container-fluid -->
+</section>
+   
+<%- include('../footer') %>

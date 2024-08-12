@@ -1,0 +1,72 @@
+<%-include ('../header') %>
+
+  <!-- Content wrapper -->
+  <div class="content-wrapper">
+    <!-- Content -->
+
+    <div class="container-xxl flex-grow-1 container-p-y">
+      <h4 class="fw-bold py-3 mb-4">
+        <span class="text-muted fw-light"></span> Tài khoản
+      </h4>
+
+      <div class="card">
+        <div class="table-responsive text-nowrap">
+          <table class="table">
+            <thead>
+              <tr >
+                <th >Stt</th>
+                <th >Email</th>
+                <th >Tên thí sinh</th>
+                <th >Ngày tạo</th>
+                <th >số bình chọn</th>
+                <th > </th>
+              </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+              <% history.forEach((item,key) => { %>
+                <tr>
+                  <td>
+                    <%= item.id %>
+                  </td>
+                  <td>
+                    <%= item.acc.email %>
+                  </td>
+                  <td>
+                    <i class="fab fa-angular fa-lg text-danger me-3"></i>
+                    <strong>
+                      <%= item.candidate.name %>
+                    </strong>
+                  </td>
+                  <td>
+                    <span class="badge bg-label-primary me-1">
+                        <%= item.created_time.toLocaleDateString('zh-Hans-CN') %>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="badge bg-label-primary me-1">
+                        <%= item.quantityVoted %>
+                    </span>
+                  </td>
+                 
+                  <td>
+                    <div class="dropdown">
+                      <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                        <i class="bx bx-dots-vertical-rounded"></i>
+                      </button>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                        <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <% }) %>
+            </tbody>
+          </table>
+        
+        </div>
+      </div>
+    </div>
+
+</div>
+<%-include ('../footer') %>

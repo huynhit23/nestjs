@@ -1,0 +1,85 @@
+<%- include('../header') %>
+
+    <!-- Content -->
+
+    <div class="container flex-grow-1 container-p-y">
+      <div class="row">
+        <div class="col-md-4">
+          <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> Thí sinh tham gia</h4>
+        </div>
+        <div class="col-md-6">
+          <h4 class="fw-bold py-3 mb-4">Tổng thí sinh: <%= total %></h4>
+        </div>
+        <div class="col-md-2">
+          <a href="create">
+            <button class="btn btn-primary" data-bs-toggle="tooltip" data-bs-offset="0,4"
+            data-bs-placement="right" data-bs-html="true" title="Add one candidates ">
+            Thêm mới
+          </button>
+          </a>
+        </div>
+
+      </div>
+
+
+      <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+        <% item.forEach((item, key) => { %>
+        <div class="col">
+          <div class="card h-100">
+            <img class="card-img-top" height="300px" src="/uploads/<%= item.image %>" alt="Card image cap" />
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-10">
+                  <h5 class="card-title text-info"><%= item.name %></h5>
+                </div>
+                <div class="col-md-2 text-right">
+                  <div class="dropdown">
+                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                      <i class="bx bx-dots-vertical-rounded text-warning"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item"  href="item/edit/<%= item.id %>"><i class="bx bx-edit-alt me-1"></i> Sửa</a>
+                      <form action="" method="delete">
+                        <a class="dropdown-item" onclick="return confirm('Bạn đã chắc chưa?')" href="delete/<%= item.id %>"><i class="bx bx-trash me-1"></i> Delete</a>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-8 ">
+                  Địa chỉ: <%= item.address %>
+                </div>
+                <div class="col-md-4">
+                  Tuổi: <%= item.age %>
+                </div>
+                <div class="col-md-8 text-primary">
+                  Cuộc thi: <%= item.poll.name %>
+                </div>
+                <div class="col-md-4 text-danger">
+                  Số bình chọn: <%= item.voteQtt %>
+                </div>
+                <div class="col-md-12">
+                  Số điện thoại: <%= item.phone %>
+                </div>
+                <div class="col-md-12">
+                  Trạng thái: <%= item.status  == 1 ? 'Hiển thị': 'Tạm ẩn'%>
+                </div>
+                <div class="col-md-12 text-center">
+                  Nội dung: <%= item.description %>
+                </div>
+                <div>
+                    <a  href="edit/<%= item.id %>" class="btn btn-primary">
+                        Sửa
+                    </a>
+                    <a  href="delete/<%= item.id %>" class="btn btn-danger">
+                        Xóa
+                    </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% })%>
+      </div>
+
+    </div>
+

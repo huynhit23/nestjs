@@ -1,0 +1,54 @@
+<%- include('../header') %>
+
+  <section class="content">
+    <div class="container-fluid">
+      <!-- Main row -->
+      <div class="row row-cols-2 d-flex justify-content-center" >
+        <form action="" method="post">
+          
+          <div class="row">
+            <div class="col">
+              <label for="" class="form-label">Tên cuộc bình chọn</label>
+              <input class="form-control" type="text" name="name" placeholder="Hoa hậu..." >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="" class="form-label">Ngày bắt đầu</label>
+              <input class="form-control" type="datetime-local" name="start" >
+            </div>
+            <div class="col">
+               <label for="" class="form-label">Ngày kết thúc</label>
+              <input class="form-control" type="datetime-local" name="end">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="">Trạng thái</label>
+            
+            <div class="radio">
+                <label>
+                    <input type="radio" name="status"  value="1" checked>
+                    Hiển thị
+                </label>
+            </div>
+            
+            <div class="radio">
+                <label>
+                    <input type="radio" name="status"  value="0">
+                    Tạm ẩn
+                </label>
+            </div>
+        </div>
+         
+          <button type="submit" class="btn btn-primary" style="margin-top:15px ;">Submit</button>
+        </form>
+
+      </div>
+      <div class="row">
+
+      </div>
+      <!-- /.row (main row) -->
+    </div><!-- /.container-fluid -->
+  </section>
+  <%- include('../footer') %>

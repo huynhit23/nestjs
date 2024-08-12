@@ -1,0 +1,92 @@
+<%- include('../header') %>
+<!-- Content wrapper -->
+<div class="content-wrapper">
+
+    <div class="container-xxl flex-grow-1 container-p-y">
+      <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Thêm mới </h4>
+      <form action="item/<%= item.id %>" method="post" enctype="multipart/form-data">
+      <div class="row">
+        <div class="col-xl-8">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="mb-3 row">
+                <label for="html5-text-input" class="col-md-2 col-form-label">Tên</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="text" name="name" value="<%= item.name %>"  id="html5-text-input" />
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="html5-tel-input" class="col-md-2 col-form-label">Đia chỉ</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="text" name="address" value="<%= item.address %>" id="html5-tel-input" />
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="html5-tel-input" class="col-md-2 col-form-label">Số điện thoại</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="tel" name="phone" value="<%= item.phone %>" id="html5-tel-input" />
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="html5-password-input" class="col-md-2 col-form-label">Nội dung</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="text" name="description" value="<%= item.description %>" id="html5-password-input" />
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="html5-number-input" class="col-md-2 col-form-label">Tuổi</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="number" name="age" value="<%= item.age %>" id="html5-number-input" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4">
+          <div class="card mb-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="mb-3">
+                <label for="formFile" class="form-label">Hình ảnh</label>
+                <input class="form-control" type="file" name="image" value="<%= item.image %>" id="formFile" />
+                <img src="/uploads/<%= item.image %>"  style="width: 100%;"  alt="#">
+              </div>
+              <div class="col-md">
+                <small class="text-light fw-semibold">Trạng thái</small>
+                <div class="form-check mt-3">
+                  <input
+                    name="status"
+                    class="form-check-input"
+                    type="radio"
+                    id="defaultRadio1"
+                    value="1" <%=item.status==1  ? 'checked' : '' %>
+                  >
+                  <label class="form-check-label" for="defaultRadio1"> Hiển thị</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    name="status"
+                    class="form-check-input"
+                    type="radio"
+                    id="defaultRadio2"
+                    value="0" <%=item.status==0  ? 'checked' : '' %>
+                  >
+                  <label class="form-check-label" for="defaultRadio2"> Tạm ẩn </label>
+                </div>
+              </div>
+            </div>
+            <div class="card-body demo-vertical-spacing demo-only-element">
+              
+              <button type="submit" class="btn btn-primary" title="update ">
+              Cập nhật thí sinh
+            </button>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </form>
+    </div>
+    </div>
+    <!-- / Content -->
+    <%- include('../footer') %>

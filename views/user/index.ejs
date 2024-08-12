@@ -1,0 +1,76 @@
+<%- include('../header') %>
+
+    <div class="container">
+
+        <a href="/user/create" class="btn btn-primary">Thêm người dùng mới</a>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Stt</th>
+                    <th>Tên</th>
+                    <th>Hình ảnh</th>
+                    <th>Email</th>
+                    <th>Địa chỉ</th>
+                    <th>Số điện thoại</th>
+                    <th>Số dư</th>
+                   <th></th>
+                </tr>
+            </thead>
+
+           
+
+            <tbody>
+                <% data.items.forEach((item, key)=> { %>
+                    <tr>
+                        <td>
+                            <%= item.id %>
+                        </td>
+                        <td>
+                            <%= item.name %>
+                        </td>
+                        
+                        <td>
+                            <img src="/uploads/<%= item.image %>" alt="" width="50">
+                          
+                        </td>
+                        <td>
+                            <%= item.email %>
+                        </td>
+                        <td>
+                            <%= item.address %>
+                        </td>
+                        <td>
+                            <%= item.phone %>
+                        </td>
+                        
+                        <td>
+                            <%= item.money %>
+                        </td>
+                        <td>
+                            <a href="user/delete/<%= item.id %>" class="btn btn-danger">Xóa</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+          <!-- hiển thị phân trang nếu có trang -->
+
+      
+          
+            <!-- FIRST ITEM -->  
+       
+        <div class="container">
+            <ul class="pagination">
+              <% for( var i=0; i < data.meta.totalPages; i++ ) { %>
+                <li class="page-item">
+                    <a class="page-link" type="submit" href="?page=<%= i+1 %>">
+                        <%= i+1 %>
+                      </a>
+                </li>
+                <% }; %>
+            </ul>
+          </div>
+
+    </div>
+   
+    <%- include('../footer') %>

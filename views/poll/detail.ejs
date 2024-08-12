@@ -1,0 +1,29 @@
+<%- include('../header') %>
+
+<!-- Content wrapper -->
+<div class="content-wrapper">
+    <!-- Content -->
+
+    <div class="container">
+        <div class="card mb-4">
+            <div class="row">
+                <div class="col-md-8"><h5 class="card-header">Danh sách thí sinh <%= names.name %></h5></div>
+                <div class="col-md-4"><h5 class="card-header">Số lượt bình chọn: </h5></div>
+            </div>
+            <div class="demo-inline-spacing ">
+                <ul class="list-group">
+                    <% itemPerPoll.forEach((item, key) => { %>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <%= item.name %>
+                        <span class="badge bg-primary"><%= item.voteQtt %></span>
+                    </li>
+                    <% })%>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- / Content -->
+
+<%- include('../footer') %>
